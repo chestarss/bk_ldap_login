@@ -1,4 +1,7 @@
 
+# 蓝鲸系统对接企业内部LDAP认证
+
+
 ## 安装依赖
 
 workon open_paas-login
@@ -6,14 +9,21 @@ pip install ldap3
 一定要是在open_paas-login这个虚拟环境下，否则ldap会找不到
 
 中控机
+cd /data/install
+grep paas install.config  查看paas在哪台机器
+到对应的paas机器上
 cd /data/bkce/open_paas/login/ee_login
+git clone 该项目的链接
+ln -s bk_ldap_login/enterprise_ldap .
 
-## 增加ladp配置
+## 在enterprise_ldap目录下增加ladp配置
 新建 secret.py
 ``` python
+# -*- coding: utf-8 -*-
+# 根据自己的配置改成对应的，主要LDAP_BASE, 是ldap用户的全路径的后缀，比如ou=users,dc=test,dc=cn
 LDAP_HOST = '10.90.10.123'
 LDAP_PORT = 389
-LDAP_BASE = 'dc=test,dc=cn'
+LDAP_USER_BASE = 'dc=test,dc=cn'
 ```
 
 ## 编辑 settings_login.py
