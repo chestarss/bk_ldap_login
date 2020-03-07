@@ -12,7 +12,7 @@ class ldapbackend(ModelBackend):
     password = credentials.get('password')
 
     if username and password:
-      logger.info("username: %s,password: %s" % (username,password))
+      #logger.info("username: %s,password: %s" % (username,password))
       #当登录账号为admin时，直接在蓝鲸验证，不走ldap认证
       if username == 'admin':
         logger.info(u'用户为admin，直接蓝鲸验证')
