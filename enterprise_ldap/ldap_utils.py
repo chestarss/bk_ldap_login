@@ -3,6 +3,10 @@
 from ldap3 import Connection, Server, SUBTREE
 from common.log import logger
 from secret import LDAP_BASE, LDAP_HOST, LDAP_PORT
+try:
+  from secret import DEBUG
+except:
+  DEBUG = False
 
 class SearchLdap:
   host = LDAP_HOST
@@ -34,13 +38,15 @@ class SearchLdap:
               raise_exceptions=False)
 
       c.bind()
-      logger.info(c.result)
+      if DEBUG:
+        logger.info(c.result)
       #认证正确-success 不正确-invalidCredentials
       if c.result['description'] == 'success':
         res = c.search(search_base=self.ldap_base, search_filter = "(cn="+username+")", search_scope = SUBTREE, attributes = ['cn', 'mobile', 'mail', 'givenName'], paged_size = 5)
         if res:
           attr_dict = c.response[0]["attributes"]
-          #logger.info(attr_dict)
+          if DEBUG:
+            logger.info(attr_dict)
           chname = attr_dict['givenName'][0]
           email = attr_dict['mail'][0]
           mobile = attr_dict['mobile'][0]
