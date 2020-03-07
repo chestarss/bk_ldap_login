@@ -40,7 +40,7 @@ class SearchLdap:
         res = c.search(search_base=self.ldap_base, search_filter = "(cn="+username+")", search_scope = SUBTREE, attributes = ['cn', 'mobile', 'mail', 'givenName'], paged_size = 5)
         if res:
           attr_dict = c.response[0]["attributes"]
-          logger.info(attr_dict)
+          #logger.info(attr_dict)
           chname = attr_dict['givenName'][0]
           email = attr_dict['mail'][0]
           mobile = attr_dict['mobile'][0]
