@@ -1,6 +1,10 @@
 
 # 蓝鲸系统对接企业内部LDAP认证
 
+
+## 根据【木讷大叔爱运维】的文章整理，
+[https://mp.weixin.qq.com/s?__biz=MzA4ODQwMDg1NQ==&mid=2247483660&idx=1&sn=f29959e62448bd8569d6f8e6cfcfdbaf&chksm=902bf7b4a75c7ea22bcbe0f3b3501526151451002fac848b7d48c1961d0e9022bb33aa9f1725&mpshare=1&scene=23&srcid=&sharer_sharetime=1583551575316&sharer_shareid=5d7a84a63006a403569777456f05a0b4#rd](原文链接)
+
 ## 安装依赖
 ``` shell script
 # 中控机
