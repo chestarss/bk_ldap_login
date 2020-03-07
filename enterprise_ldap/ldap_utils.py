@@ -37,7 +37,7 @@ class SearchLdap:
       logger.info(c.result)
       #认证正确-success 不正确-invalidCredentials
       if c.result['description'] == 'success':
-        res = c.search(search_base=self.ldap_base, search_filter = "(cn="+username+")", search_scope = SUBTREE, attributes = ['cn', 'mobile', 'mail'], paged_size = 5)
+        res = c.search(search_base=self.ldap_base, search_filter = "(cn="+username+")", search_scope = SUBTREE, attributes = ['cn', 'mobile', 'mail', 'givenName'], paged_size = 5)
         if res:
           attr_dict = c.response[0]["attributes"]
           logger.info(attr_dict)
