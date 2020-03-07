@@ -16,7 +16,7 @@ pip install ldap3
 # 一定要是在open_paas-login这个虚拟环境下，否则ldap会找不到
 
 cd /data/bkce/open_paas/login/ee_login
-git clone <该项目的链接>
+git clone https://github.com/chestarss/bk_ldap_login.git
 ln -s bk_ldap_login/enterprise_ldap .
 ```
 
